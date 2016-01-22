@@ -8,7 +8,8 @@ LSM303 compass;
 U8GLIB_SSD1306_64X48 u8g(14, 11, 10, 8, 9);   //MicroView OLED
  
 
-int headingInt = 0;          //Compass heading as integer
+int headingInt = 0; //Compass heading as integer
+
 const unsigned char* compassString[]={            //Compass Bitmaps in degrees
 compass1_bits, compass2_bits, compass3_bits, compass4_bits, compass5_bits, compass6_bits, compass7_bits, compass8_bits, compass9_bits, compass10_bits,
 compass11_bits, compass12_bits, compass13_bits, compass14_bits, compass15_bits, compass16_bits, compass17_bits, compass18_bits, compass19_bits, compass20_bits,
@@ -93,7 +94,7 @@ void loop(void)
   compass.read();
   
   float heading = compass.heading((LSM303::vector<int>){1, 0, 0}); //Vector reference for noth heading {X, Y, Z}
-  int headingInt = heading;
+  headingInt = heading;
   if (headingInt < 1) {
     headingInt = 360 + headingInt;
   }
@@ -105,7 +106,7 @@ void loop(void)
     // picture loop
   u8g.firstPage();  
   do {
-    //draw();
+    draw();
   } while( u8g.nextPage() );
   
   
