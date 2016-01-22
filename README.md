@@ -1,1 +1,3 @@
 # Compass
+
+Arduino digital compass
